@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="card" style="margin-top: 1cm; border-radius: 1cm; background-color: darkgreen; color: white;">
+    <h1 style="text-align: center;">PLATFORME DE GESTION AMICALE</h1>
+  </div>
+  <br/>
+  <input type="button" class="btn btn-success" id="add" value="ajouter" (click)="add()"/>
+  <br/>
+  <div class="card" style="width: 50%;" [hidden]="hide">
+    <div class="card-header">Ajouter un universite</div>
+    <div class="card-body">
+      <form (ngSubmit)="ajouter()">
+          <input type="text" name="nomUniversite" id="nomUniversite" class="form-control" [(ngModel)]="nomUniversite" placeholder="nom universite">
+          <br/>
+          <input type="submit" value="enregistrer" [disabled]="!nomUniversite" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+  <br/>
+  <div class="card">
+  <div class="card-header">Liste des Universites</div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Universite</th>
+          <th>Details</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of universites">
+          <td>{{item.id}}</td>
+          <td>{{item.nomUniversite}}</td>
+          <td><button class="btn btn-success">voir</button></td>
+          <td><input type="button" class="btn btn-success" value="modifier"></td>
+          <td><input type="button" class="btn btn-success" (click)="supprimer(item.id)" value="supprimer"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

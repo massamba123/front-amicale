@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="card">
+    <h1 style="text-align: center;">Drud etudiant</h1>
+    <form #loginForm="ngForm">
+      <div class="container">
+        <div class="row" style="width: 50%;">
+          <div class="mb-3 col-6">
+            <input type="text" name="prenom" [(ngModel)]="prenom" class="form-control" id="prenom" placeholder="prenom">
+          </div>
+          <div class="mb-3 col-6">
+            <input name="nom" [(ngModel)]="nom" placeholder="nom" type="text" class="form-control" id="prenom">
+          </div>
+        </div>
+        <div class="row" style="width: 50%;">
+          <div class="mb-3 col-6">
+            <input name="telephone" placeholder="telephone" [(ngModel)]="telephone" type="text" class="form-control" id="telephone">
+          </div>
+          <div class="mb-3 col-6">
+            <input name="age" placeholder="age" [ngModel]="age" type="number" class="form-control" id="age">
+          </div>
+        </div>
+        <div class="row" style="width: 50%;">
+          <div class="mb-3 col-6">
+            <select id="universite" name="universite" [(ngModel)]="universite" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>selectionner universite</option>
+              <option *ngFor="let item of universites" value="{{item}}">{{item}}</option>
+            </select>
+          </div>
+          <div class="mb-3 col-6">
+            <select *ngIf="universite" id="faculte" name="faculte" [(ngModel)]="faculte" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>selectionner faculte</option>
+              <option *ngFor="let item of univ[universite]" value="{{item}}">{{item}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row" style="width: 50%;">
+          <div class="mb-3 col-6">
+            <select *ngIf="faculte" id="departement" name="departement" [(ngModel)]="departement" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>selectionner departement</option>
+              <option *ngFor="let item of facultes[faculte]" value="{{item}}">{{item}}</option>
+            </select>
+          </div>
+          <div class="mb-3 col-6">
+            <select *ngIf="departement" id="niveau" name="niveau" [(ngModel)]="niveau" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+              <option selected>selectionner niveau</option>
+              <option *ngFor="let item of niveaus" value="{{item}}">{{item}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="width: 50%;">
+        <div class="mb-3 col-6">
+
+        </div>
+        <div class="mb-3 col-6">
+          <button type="submit" class="btn btn-success ">Enregistrer</button>
+        </div>
+      </div>
+    </form>
+</div>
+<div class="card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Telephone</th>
+        <th>Age</th>
+        <th>details</th>
+        <th>modifier</th>
+        <th>supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of etudiants">
+        <td>{{item.prenom}}</td>
+        <td>{{item.nom}}</td>
+        <td>{{item.telephone}}</td>
+        <td>{{item.age}}</td>
+        <td><button type="button" class="btn btn-success">detail</button></td>
+        <td><button type="button" class="btn btn-success">modifier</button></td>
+        <td><button type="" class="btn btn-success">supprimer</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="card" style="margin-top: 1cm; border-radius: 1cm; background-color: darkgreen; color: white;">
+    <h1 style="text-align: center;">PLATFORME DE GESTION AMICALE</h1>
+  </div>
+  <br/>
+  <input type="button" class="btn btn-success" id="add" value="ajouter" (click)="add()"/>
+  <br/>
+  <div class="card" style="width: 50%;" [hidden]="hide">
+    <div class="card-header">Ajouter un Niveau</div>
+    <div class="card-body">
+      <form (ngSubmit)="ajouter()">
+        <input list="universite" name="universite" [(ngModel)]="idUniversite" name="Departement" class="form-control" placeholder="selectionner universite">
+        <datalist id="universite">
+          <option *ngFor="let item of universites" value="{{item.id}}">{{item.nomUniversite}}</option>
+        </datalist>
+        <input list="faculte" *ngIf="idUniversite" name="faculte" [(ngModel)]="idFaculte" name="faculte" class="form-control" placeholder="selectionner faculte">
+        <datalist id="faculte">
+          <option *ngFor="let item of facultes" value="{{item.id}}">{{item.nomFaculte}}</option>
+        </datalist>
+        <input list="departement" *ngIf="idFaculte" name="departement" [(ngModel)]="idDepartement" name="departement" class="form-control" placeholder="selectionner departement">
+        <datalist id="departement">
+          <option *ngFor="let item of departements" value="{{item.id}}">{{item.nomDepartement}}</option>
+        </datalist>
+        <input type="text" *ngIf="idDepartement" name="niveau" id="niveau" class="form-control" [(ngModel)]="nomNiveau" placeholder="nom niveau">
+        <br/>
+        <input type="submit" value="enregistrer" [disabled]="!idUniversite" class="btn btn-success">
+      </form>
+    </div>
+  </div>
+  <br/>
+  <div class="card">
+  <div class="card-header">Liste des Niveau</div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Niveau</th>
+          <th>Details</th>
+          <th>Modifier</th>
+          <th>Supprimer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of niveaus">
+          <td>{{item.id}}</td>
+          <td>{{item.nomNiveau}}</td>
+          <td><button class="btn btn-success">voir</button></td>
+          <td><input type="button" class="btn btn-success" value="modifier"></td>
+          <td><input type="button" class="btn btn-success" (click)="supprimer(item.id)" value="supprimer"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

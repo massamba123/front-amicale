@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="block">
+    <div class="ma">
+      <div class="col-2">
+        <img src="../../assets/images/ucad.jpg"/>
+      </div>
+      <div class="col-2">
+        <img src="../../assets/images/uasz.jpg"/>
+      </div>
+      <div class="col-2">
+        <img src="../../assets/images/uabd.jpg"/>
+      </div>
+      <div class="col-2">
+        <img src="../../assets/images/ss.png"/>
+      </div>
+      <div class="col-2">
+        <img src="../../assets/images/ugb.png"/>
+      </div>
+    </div>
+  </div>
+    <div class="forme">
+      <div class="card" id="form">
+        <form>
+          <fieldset>
+            <legend>Inscription Etudiant</legend>
+
+            <input type="text" name="prenom" [(ngModel)]="prenom" class="form-control" id="prenom" placeholder="prenom">
+            <input name="nom" [(ngModel)]="nom" placeholder="nom" type="text" class="form-control" id="nom">
+            <input name="telephone" placeholder="telephone" [(ngModel)]="telephone" type="text" class="form-control" id="telephone">
+            <input name="age" placeholder="age" [ngModel]="age" type="number" class="form-control" id="age">
+            <input list="universite" [(ngModel)]="universite" name="universite" class="form-control" placeholder="selectionner universite">
+            <datalist id="universite">
+              <option *ngFor="let item of universites" value="{{item}}"></option>
+            </datalist>
+            <input list="faculte" *ngIf="universite" name="faculte" [(ngModel)]="faculte" name="faculte" class="form-control" placeholder="selectionner faculte">
+            <datalist id="faculte">
+              <option *ngFor="let item of univ[universite]" value="{{item}}"></option>
+            </datalist>
+            <input list="departement" *ngIf="faculte" name="departement" [(ngModel)]="departement" class="form-control" placeholder="selectionner le departement">
+            <datalist id="departement">
+              <option *ngFor="let item of facultes[faculte]" value="{{item}}"></option>
+            </datalist>
+            <input list="niveau" *ngIf="departement" name="niveau" [(ngModel)]="niveau" class="form-control" placeholder="selectionner le niveau">
+            <datalist id="niveau">
+              <option *ngFor="let item of niveaus" value="{{item}}"></option>
+            </datalist>
+            <input type="button" value="enregistrer" [disabled]="niveau" class="btn btn-success">
+          </fieldset>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>

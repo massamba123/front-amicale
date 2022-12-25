@@ -1,0 +1,36 @@
+legend {
+  font-family: Georgia, serif;
+  background-color: #fff;
+  color:black;
+  margin: 0.4rem;
+  width: 50%;
+  padding: 3px 6px;
+}
+
+input,select {
+  margin: 0.4rem;
+  width: 60%;
+}
+.ma {
+  display: flex;
+  justify-content: center;
+}
+div #form {
+  width: 50%;
+}
+.forme {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1cm;
+
+}
+label {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  padding-right: 10px;
+}
+img {
+  width: 2cm;
+  height: 2cm;
+}
