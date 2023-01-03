@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Universite } from 'src/model/universite';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UniversitesService {
+  url : string = 'http//localhost:8080'
   universite! : Universite
   universites! : Array<Universite>
 
-  constructor() {
+  constructor(private http :HttpClient) {
     this.universites = [
       {
         "id" : 1,
@@ -33,6 +35,12 @@ export class UniversitesService {
 ];
   }
   public ajouterUniversite(universite:Universite){
+    this.http.post(this.url+'/universite',universite).subscribe((reponse) => {
+      console.log(reponse);
+    },
+    (err) => {
+      console.log(err);
+    })
     this.universites.push(universite);
   }
   public getUniversite(id: number) {

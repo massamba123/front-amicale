@@ -1,7 +1,4 @@
 <div class="container">
-  <div class="card" style="margin-top: 1cm; border-radius: 1cm; background-color: darkgreen; color: white;">
-    <h1 style="text-align: center;">PLATFORME DE GESTION AMICALE</h1>
-  </div>
   <br/>
   <input type="button" class="btn btn-success" id="add" value="ajouter" (click)="add()"/>
   <br/>
@@ -9,7 +6,7 @@
     <div class="card-header">Ajouter un universite</div>
     <div class="card-body">
       <form (ngSubmit)="ajouter()">
-          <input type="text" name="nomUniversite" id="nomUniversite" class="form-control" [(ngModel)]="nomUniversite" placeholder="nom universite">
+          <input type="text" name="nomUniversite" id="nomUniversite" [(ngModel)]="nomUniversite" class="form-control"  placeholder="nom universite">
           <br/>
           <input type="submit" value="enregistrer" [disabled]="!nomUniversite" class="btn btn-success">
       </form>

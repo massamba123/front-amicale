@@ -1,6 +1,6 @@
-import { UniversitesService } from './../../services/universites.service';
-import { FaculteService } from './../../services/faculte.service';
-import { DepartementService } from './../../services/departement.service';
+import { UniversitesService } from '../../services/universites.service';
+import { FaculteService } from '../../services/faculte.service';
+import { DepartementService } from '../../services/departement.service';
 import { Component, OnInit } from '@angular/core';
 import { Niveau } from 'src/model/niveau';
 import { NiveauService } from 'src/services/niveau.service';
